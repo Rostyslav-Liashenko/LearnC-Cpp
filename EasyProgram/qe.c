@@ -3,7 +3,7 @@
 
 double discrim(double a, double b, double c)
 {
-	return b*b-4*a*c;
+	return b*b - 4*a*c;
 }
 
 int main()
@@ -25,6 +25,7 @@ int main()
 		return 0;
 	}
 	d = sqrt(d);
-	printf("%.5f %.5F\n", (-q-d)/(2*p),(-q+d)/(2*p));
+	printf("%.5f %.5f\n", (-q-d)/(2 * p), (-q+d)/(2*p));
 	return 0;
 }
+
