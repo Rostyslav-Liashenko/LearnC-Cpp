@@ -5,7 +5,6 @@ int main()
 	int a,b;
 	printf("Input the a and b: ");
 	scanf("%d %d",&a,&b);
-	int max = a > b ? a : b;
-	printf("Max = %d\n",max);
+	printf("Maximum value is %d\n", a > b ? a : b);
 	return 0;
 }
