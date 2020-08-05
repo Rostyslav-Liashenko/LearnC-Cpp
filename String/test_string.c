@@ -18,10 +18,32 @@ void reverse_string(char *str)
 	}
 }
 
+int string_length(const char *str)
+{
+	const char *p;
+	for (p = str; *p; p++)
+		{}
+	return p - str;
+}
+
+void string_copy(char *dest, const char *src)
+{
+	/*
+	int i;
+	for (i = 0; src[i]; i++)
+		dest[i] = src[i];
+	dest[i] = 0;
+	*/
+	for (; *src; dest++, src++)
+		*dest = *src;
+	*dest = 0;
+}
 
 int main()
 {
 	char str[80];
+	char cp_str[80];
+
 	printf("Input the string: ");
 	fgets(str,sizeof(str),stdin);
 	fix_string(str);
@@ -29,9 +51,15 @@ int main()
 	fputs(str,stdout);
 	printf("\n");
 	printf("Len str = %ld\n", strlen(str));
+	/*
 	reverse_string(str);
 	printf("Reverse string:");
 	fputs(str,stdout);
+	printf("\n");
+	*/
+	string_copy(cp_str,str);
+	printf("cp_str: ");
+	fputs(cp_str,stdout);
 	printf("\n");
 	return 0;
 
