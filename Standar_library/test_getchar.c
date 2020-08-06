@@ -9,9 +9,9 @@ int main()
 		{
 			printf("%d\n",count);
 			count = 0;
-			continue;
 		}
-		count++;
+		else
+			count++;
 	}
 	return 0;
 }
