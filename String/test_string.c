@@ -46,7 +46,11 @@ int main()
 
 	printf("Input the string: ");
 	fgets(str,sizeof(str),stdin);
+	/*ltrim(str);
+	rtrim(str);
+	*/
 	fix_string(str);
+
 	printf("Your string: ");
 	fputs(str,stdout);
 	printf("\n");
