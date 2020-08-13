@@ -1,0 +1,10 @@
+Line nom 1
+Line nom 2
+Line now 3
+Line now 4
+Line now 5
+Line now 6
+Line now 7
+Line now 8
+Line now 9
+end the file
