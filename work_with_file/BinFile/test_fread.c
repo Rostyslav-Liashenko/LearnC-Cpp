@@ -12,7 +12,7 @@ int main(void)
         return 1;
     }
     fread(&number,sizeof(number),1,input);
-    printf("%d",number);
+    printf("%d\n",number);
     fclose(input);
     return 0;
 }
