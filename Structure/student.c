@@ -29,6 +29,10 @@ int main(void)
     {
         "Otlichnik Petya Pupkin", 'm', 1996, 513455, 3, "312", 4.543
     };
-    
+    printf("Year = %d\n",st1.year);
+    struct student *p;
+    p = &st1;
+    (*p).year = 4;
+    printf("Year = %d\n",st1.year);
     return 0;
 }
