@@ -32,7 +32,7 @@ int main(void)
     printf("Year = %d\n",st1.year);
     struct student *p;
     p = &st1;
-    (*p).year = 4;
+    p->year = 4;
     printf("Year = %d\n",st1.year);
     return 0;
 }
