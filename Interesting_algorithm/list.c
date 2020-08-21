@@ -9,23 +9,14 @@ struct item
 
 struct item *int_array_to_list(int *arr, int len)
 {
-    struct item *first = NULL, *last = NULL, *tmp;
-    int i;
-    for(i = 0; i < len; i++)
+    struct item *first, *tmp;
+    first = NULL;
+    for(int i = len - 1; i >= 0; i--)
     {
         tmp = malloc(sizeof(struct item));
         tmp->data = arr[i];
-        tmp->next = NULL;
-        if (last)
-        {
-            last->next = tmp;
-            last = last->next;
-        }
-        else
-        {
-            first = last = tmp;
-        }
-
+        tmp->next = first;
+        first = tmp;
     }
     return first;
 }
