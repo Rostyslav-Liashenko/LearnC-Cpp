@@ -29,6 +29,15 @@ int int_list_sum(const struct item *lst)
     return sum;
 }
 
+void delete_int_list(struct item *lst)
+{
+    while(lst)
+    {
+        struct item *tmp = lst;
+        lst = lst->next;
+        free(tmp);
+    }
+}
 
 int main(void)
 {
