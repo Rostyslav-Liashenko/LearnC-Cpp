@@ -23,6 +23,14 @@ int int_list_sum(const struct item *lst)
     return lst ? lst->data + int_list_sum(lst->next) : 0;
 }
 
+void delete_int_list(struct item *lst)
+{
+    if(!lst)
+        return ;
+    delete_int_list(lst->next);
+    free(lst);
+}
+
 int main(void)
 {
     return 0;
