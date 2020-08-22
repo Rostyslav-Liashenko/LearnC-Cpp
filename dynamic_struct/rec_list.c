@@ -18,6 +18,14 @@ struct item *int_array_to_list(int *arr, int len)
     return tmp;
 }
 
+int int_list_sum(const struct item *lst)
+{
+    if(lst)
+        return last->data + int_list_sum(lst->next);
+    else
+        return 0;
+}
+
 int main(void)
 {
     return 0;
