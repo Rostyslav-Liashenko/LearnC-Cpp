@@ -20,6 +20,5 @@ struct item *int_array_to_list(int *arr, int len)
 
 int main(void)
 {
-
     return 0;
 }

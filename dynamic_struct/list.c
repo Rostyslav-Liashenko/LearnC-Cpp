@@ -21,6 +21,19 @@ struct item *int_array_to_list(int *arr, int len)
     return first;
 }
 
+int int_list_sum(const struct item *lst)
+{
+    int sum = 0;
+    const struct item *tmp = lst;
+    while(tmp)
+    {
+        sum += tmp->data;
+        tmp = tmp->next;
+    }
+    return sum;
+}
+
+
 int main(void)
 {
 
