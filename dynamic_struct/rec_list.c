@@ -20,10 +20,7 @@ struct item *int_array_to_list(int *arr, int len)
 
 int int_list_sum(const struct item *lst)
 {
-    if(lst)
-        return last->data + int_list_sum(lst->next);
-    else
-        return 0;
+    return lst ? lst->data + int_list_sum(lst->next) : 0;
 }
 
 int main(void)
