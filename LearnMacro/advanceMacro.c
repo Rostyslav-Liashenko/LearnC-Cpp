@@ -20,6 +20,7 @@
         } \
         return s; \
 }
+#define VAR_PRINT(X) printf("%s = %d\n",#x,x)
 
 int main(void)
 {   
@@ -28,5 +29,7 @@ int main(void)
     printf("SQUARE = %d\n",SQUARE(10 + 1));
     printf("BADSQUARE = %d\n",BADSQUARE(10 + 1));
     fputs(HELP_TEXT, stderr);
+    int some_variable = 13;
+    VAR_PRINT(some_variable);
     return 0;    
 }
