@@ -8,7 +8,7 @@
     "This us a very good program that displays file size\n" \
     "To use it you should specify the file name\n" \
     "as a command line parameter, such as\n" \
-    "   fsize file.txt\n;
+    "  fsize file.txt\n"
 
 #define MAKE_ARRAY_SUM_FUNCTION(FUNNAME, TYPE) \
     TYPE FUNNAME(const TYPE *a, int n) { \
@@ -20,7 +20,7 @@
         } \
         return s; \
 }
-#define VAR_PRINT(X) printf("%s = %d\n",#x,x)
+#define VAR_PRINT(X) printf("%s = %d\n",#X,X)
 
 int main(void)
 {   
