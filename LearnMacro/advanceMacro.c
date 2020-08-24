@@ -24,6 +24,10 @@
 
 #define FOR_SECOND
 
+#ifndef BUFFER_SIZE
+#error Please specify the buffer size
+#endif
+
 int main(void)
 {   
     printf("MAX  = %d\n",MAX(10,5) * 5);
