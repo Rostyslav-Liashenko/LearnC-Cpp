@@ -29,7 +29,19 @@ int main(void)
     printf("SQUARE = %d\n",SQUARE(10 + 1));
     printf("BADSQUARE = %d\n",BADSQUARE(10 + 1));
     fputs(HELP_TEXT, stderr);
+
+#if 0 /* if 0 comment wort, if 1 comment don't work */
     int some_variable = 13;
     VAR_PRINT(some_variable);
+#endif
+
+#if 0
+    /* if write #if 1 to code work, #else not work"
+    /* code */
+    
+#else
+    /*if write #if 0 to code up not work. #else worl */
+   /* code */
+#endif
     return 0;    
 }
