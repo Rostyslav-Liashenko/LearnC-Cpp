@@ -42,7 +42,7 @@ int main(void)
 #endif
 
 #if 0
-    /* if write #if 1 to code work, #else not work"
+    /* if write #if 1 to code work, #else not work */
     /* code */
     
 #else
