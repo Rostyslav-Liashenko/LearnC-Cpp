@@ -22,6 +22,8 @@
 }
 #define VAR_PRINT(X) printf("%s = %d\n",#X,X)
 
+#define FOR_SECOND
+
 int main(void)
 {   
     printf("MAX  = %d\n",MAX(10,5) * 5);
@@ -42,6 +44,14 @@ int main(void)
 #else
     /*if write #if 0 to code up not work. #else worl */
    /* code */
+#endif
+
+#if defined(FOR_FIRST)
+    printf("FOR_FIRST\n");
+#elif defined(FOR_SECOND)
+    printf("FOR_SECOND\n");
+#else
+    printf("OTHER\n");
 #endif
     return 0;    
 }
