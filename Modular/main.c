@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "mod1.h"
 
 int my_cube(int x);
 
