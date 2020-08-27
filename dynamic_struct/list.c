@@ -34,6 +34,11 @@ void show_list(struct item *head)
     }
 }
 
+int summa_nodes_list(struct item *head)
+{
+    return head ? head->data + summa_nodes_list(head->next) : 0;
+}
+
 int main(void)
 {    
     int len;
@@ -42,5 +47,6 @@ int main(void)
 
     struct item *head = create_random_list(len);
     show_list(head);
+    printf("Summa nodes = %d\n",summa_nodes_list(head));
     return 0;
 }
