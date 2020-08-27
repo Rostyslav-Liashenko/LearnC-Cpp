@@ -13,7 +13,7 @@ struct item *create_random_list(int count_node)
     while (count_node)
     {
         tmp = malloc(sizeof(struct item));
-        tmp->data = rand() % 10 + 1;
+        tmp->data = count_node;
         tmp->next = head;
         head = tmp;
         count_node--;
@@ -39,6 +39,16 @@ int summa_nodes_list(struct item *head)
     return head ? head->data + summa_nodes_list(head->next) : 0;
 }
 
+void delete_list(struct item *head)
+{
+    while (head)
+    {    
+        struct item *tmp = head;
+        head = head->next;
+        free(tmp);
+    }
+}
+
 int main(void)
 {    
     int len;
@@ -48,5 +58,6 @@ int main(void)
     struct item *head = create_random_list(len);
     show_list(head);
     printf("Summa nodes = %d\n",summa_nodes_list(head));
+    delete_list(head);
     return 0;
 }
