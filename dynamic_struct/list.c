@@ -23,9 +23,15 @@ struct item *create_random_list(int count_node)
 
 void show_list(struct item *head)
 {
-    for(; head; head = head->next)
+    if (head)
+    {
         printf("%d -> ",head->data);
-    putchar(10);
+        show_list(head->next);
+    }
+    else
+    {
+        putchar(10);
+    }
 }
 
 int main(void)
