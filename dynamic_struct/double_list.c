@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <malloc.h>
 
 struct dbl_item
 {
@@ -39,6 +40,7 @@ int main(void)
     last = tmp;
 
     /* extract first nodes */
+
     if (first)
     {
         tmp = first;
@@ -49,7 +51,9 @@ int main(void)
             last = NULL;
         free(tmp);
     }
+
     /* extract last element list */
+
     if (last)
     {
         tmp = last;
@@ -62,7 +66,9 @@ int main(void)
         }
         free(tmp);
     }
+
     /* delete all elements list */
+
     if (first)
     {
         first = first->next;
@@ -73,6 +79,42 @@ int main(void)
         }
         free(last);
         last = NULL;
-    }   
+    }
+
+    /* insert element before current */
+    tmp = malloc(sizeof(struct dbl_item));
+    tmp->data = x;
+    tmp->next = current;
+    tmp->prev = current->prev;
+    current->prev = tmp;
+    if (tmp->prev)
+        tmp->prev->next = tmp;
+    else
+        first = tmp;
+    /* insert element after current */
+    tmp = malloc(sizeof(struct dbl_item));
+    tmp->data = x;
+    tmp->prev = current;
+    tmp->next = current->next;
+    current->next = tmp;
+    if (tmp->next)
+        tmp->next->prev = tmp;
+    else
+        last = tmp;
+
+    /* delete current element and new current rigth */
+    if (current->prev)
+        current->prev->next = current->next;
+    else
+        first = current->next;
+    if (current->next)
+        current->next->prev = current->prev;
+    else
+        last = current->prev;
+    /* switch in code bottom, next to prev for left */
+    tmp = current;
+    current = current->next;
+    free(tmp);
+        
     return 0;
 }
