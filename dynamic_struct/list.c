@@ -52,7 +52,7 @@ void delete_list(struct item *head)
 
 void delete_negatives_from_int_list(struct item **pcur)
 {
-    while(*pcur)
+    while (*pcur)
     {
         if ((*pcur)->data < 0)
         {
@@ -62,9 +62,10 @@ void delete_negatives_from_int_list(struct item **pcur)
         }
         else
         {
-            pcur = &(*pcur)->next;
+            pcur = &((*pcur)->next);
         }
-    }
+        
+    }    
 }
 
 int main(void)
