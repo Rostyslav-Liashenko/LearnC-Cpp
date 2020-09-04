@@ -19,9 +19,18 @@ typedef struct tag_mystruct
     double d;
 } mystruct;
 
+
+/* for dynamic struct */
+
+typedef struct item{
+    int data;
+    struct item *next;
+} item;
+
 int main(void)
 {
     intptr num1 = NULL;
+    item *first = NULL;
     my_struct some_struct;
     some_struct.d = 45.32;
     some_struct.i = 14;
