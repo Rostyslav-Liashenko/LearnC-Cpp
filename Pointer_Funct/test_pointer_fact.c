@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+enum {MAX = 100};
 
 double dbl_sum(const double *a, int size)
 {
@@ -22,6 +24,15 @@ double dbl_average(const double *a, int size)
 
 int main(void)
 {
-
+    double (*fptr) (const double *, int); /* Function pointer */
+    fptr = &dbl_sum; /* or fptr = dbl_min, it's correct */
+    double arr[MAX];
+    double res;
+    for (int i = 0;i < MAX; i++)
+    {
+        arr[i] = rand() % 20;
+    }
+    res = fptr(arr,sizeof(arr)/sizeof(*arr)); /* or res = (*fptr) (arr, sizeof(arr) / sizeof(*arr)) */
+    printf("res = %.2lf\n",res);
     return 0;
 }
