@@ -35,6 +35,6 @@ int main(void)
     int k;
     k = sum(6,8,9,10,2,5,6,7,10,0);
     printf("Summa = %d\n",k);
-    print_times("once ",1,"twice ",2,"seven times ",7,NULL);
+    print_times("once ee",1,"twice ",2,"seven times ",7,NULL);
     return 0;
 }
