@@ -16,6 +16,10 @@ int main(void)
     curs_set(0);
     refresh();
     sleep(delay_duration);
+    move(0,0);
+    addstr("My first program used library ncurses");
+    refresh();
+    sleep(delay_duration);
     endwin();
     return 0;
 }
