@@ -71,7 +71,7 @@ int main(void)
                 move_message(&x,&y,max_x,max_y,0,-1);
                 break;
             case KEY_DOWN:
-                move_message(&x,&y,max_x,max_y,-1,0);
+                move_message(&x,&y,max_x,max_y,0,1);
                 break;
             case KEY_LEFT:
                 move_message(&x,&y,max_x,max_y,-1,0);
