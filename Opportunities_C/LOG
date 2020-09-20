@@ -1,0 +1,14 @@
+execve("./greet", ["./greet", "Rostik"], 0x7fffd568e758 /* 50 vars */) = 0
+arch_prctl(0x3001 /* ARCH_??? */, 0x7fff839aecc0) = -1 EINVAL (Недопустимый аргумент)
+brk(NULL)                               = 0xb6a000
+brk(0xb6b1c0)                           = 0xb6b1c0
+arch_prctl(ARCH_SET_FS, 0xb6a880)       = 0
+uname({sysname="Linux", nodename="kivi27-HP", ...}) = 0
+readlink("/proc/self/exe", "/home/kivi27/C++/LearnC/Opportun"..., 4096) = 46
+brk(0xb8c1c0)                           = 0xb8c1c0
+brk(0xb8d000)                           = 0xb8d000
+mprotect(0x4bd000, 12288, PROT_READ)    = 0
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+write(1, "Hello, dear Rostik\n", 19)    = 19
+exit_group(0)                           = ?
++++ exited with 0 +++
