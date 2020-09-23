@@ -8,7 +8,7 @@ _start:     mov     ecx, [esp]  ;argc in ecx
             push    eax
             push    ecx
             call    main
-            add     eas, 8
+            add     esp, 8
             mov     ebx, eax
             mov     eax, 1
             int     80h
