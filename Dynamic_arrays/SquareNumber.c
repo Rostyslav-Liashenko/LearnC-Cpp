@@ -17,7 +17,7 @@ void main(void)
     int size,i;
     printf("Input the size of array: ");
     scanf("%d",&size);
-    ptr = malloc(size * sizeof(int));
+    ptr = calloc(size,sizeof(int));
     for (i = 0; i < size; i++)
     {
         printf("Input the element [%d]:",i);
