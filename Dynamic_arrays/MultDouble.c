@@ -30,5 +30,6 @@ int main(void)
     {
          printf("array[%d] = %d\n",i,*(dynamic + i));
     }
+    free(dynamic);
     return 0;
 }
