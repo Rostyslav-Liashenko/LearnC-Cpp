@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-#define MAXNUMBER 100
+#include <time.h>
 
 void show_array(int *ar, int size)
 {
@@ -13,6 +12,7 @@ void show_array(int *ar, int size)
 
 void main(void)
 {
+    srand(time(NULL));
     int *ptr = NULL;
     int size,i;
     printf("Input the size of array: ");
@@ -29,6 +29,14 @@ void main(void)
         *(ptr + i) = *(ptr + i) * *(ptr + i);
     }
     show_array(ptr,size);
+    printf("Appended array\n");
+    int new_size = size + 5;
+    ptr  = realloc(ptr,new_size);
+    for (i = size; i < new_size; i++)
+    {
+        *(ptr + i) = rand() % 20;
+    }
+    show_array(ptr,new_size);
     free(ptr);
     return 0;
 }
