@@ -17,7 +17,11 @@ void main(void)
     int size,i;
     printf("Input the size of array: ");
     scanf("%d",&size);
-    ptr = calloc(size,sizeof(int));
+    if (!(ptr = calloc(size,sizeof(int))))
+    {
+        printf("Not enough memory\n");
+        exit(1);
+    }
     for (i = 0; i < size; i++)
     {
         printf("Input the element [%d]:",i);
