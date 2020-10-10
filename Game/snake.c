@@ -1,16 +1,23 @@
 #include <ncurses.h>
-#include <unistd.h>
 
-static void show_section_snake(int x, int y)
+enum {delay_duration = 100};
+
+
+struct one_section_snake
 {
-    move(y,x);
+    int cur_x, cur_y, dx, dy;
+};
+
+static void show_section_snake(struct one_section_snake *s)
+{
+    move(s->cur_y,s->cur_x);
     addch('*');
     refresh();
 }
 
-static void hide_section_snake(int x, int y)
+static void hide_section_snake(struct one_section_snake *s)
 {
-    move(y,x);
+    move(s->cur_y,s->cur_x);
     addch(' ');
     refresh();
 }
@@ -18,51 +25,60 @@ static void hide_section_snake(int x, int y)
 static void check(int *coord, int max)
 {
     if (*coord < 0)
-        *coord = 0;
+        *coord += max;
     else if (*coord > max)
-        *coord = max;
+        *coord -= max;
 }
 
-static void move_section_snake(int *x, int *y, int mx, int my, int dx, int dy)
+static void move_section_snake(struct one_section_snake *s, int mx, int my)
 {
-    hide_section_snake(*x,*y);
-    *x += dx;
-    check(x,mx);
-    *y += dy;
-    check(y,my);
-    show_section_snake(*x,*y);
+    hide_section_snake(s);
+    s->cur_x += s->dx;
+    check(&s->cur_x,mx);
+    s->cur_y += s->dy;
+    check(&s->cur_y,my);
+    show_section_snake(s);
+}
+
+static void set_direction(struct one_section_snake *s, int dx, int dy)
+{
+    s->dx = dx;
+    s->dy = dy;
 }
 
 
 int main(void)
 {
-    int row, col,x,y,max_x,max_y,key;
+    int row, col,key;
+    struct one_section_snake s;
     initscr();
     cbreak();
+    timeout(delay_duration);
     keypad(stdscr,1);
     noecho();
     curs_set(0);
     getmaxyx(stdscr,row,col);
-    x = col / 2;
-    y = row / 2;
-    max_x = col -1;
-    max_y = row -1;
-    show_section_snake(x,y);
+    s.cur_x = col / 2;
+    s.cur_y = row / 2;
+    set_direction(&s,0,0);
     while ((key = getch()) != KEY_BACKSPACE)
     {
         switch(key)
         {
             case KEY_UP:
-                move_section_snake(&x,&y,max_x,max_y,0,-1);
+                set_direction(&s,0,-1);
                 break;
             case KEY_DOWN:
-                move_section_snake(&x,&y,max_x,max_y,0,1);
+                set_direction(&s,0,1);
                 break;
             case KEY_LEFT:
-                move_section_snake(&x,&y,max_x,max_y,-1,0);
+                set_direction(&s,-1,0);
                 break;
             case KEY_RIGHT:
-                move_section_snake(&x,&y,max_x,max_y,1,0);
+                set_direction(&s,1,0);
+            case ERR:
+                move_section_snake(&s,col-1,row-1);
+                break;
         }
     }
     endwin();
