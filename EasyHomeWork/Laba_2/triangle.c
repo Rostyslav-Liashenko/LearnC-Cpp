@@ -10,7 +10,7 @@ int main(void)
     {
         if (a == b && b == c && a == c)
         {
-            printf("Trikutnuk riznostoroniy\n");
+            printf("Trikutnuk rivnostoroniy\n");
         }
         else if (a == b || b == c || a == c)
         {
