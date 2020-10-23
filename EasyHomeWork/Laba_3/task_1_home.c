@@ -18,5 +18,6 @@ int main(void)
     }
     avg = (double) sum / n;
     printf("\n Suma = %d\n Average = %.3f\n",sum,avg);
+    printf("Create By Liashenko Rostyslav\n");
     return 0;
 }

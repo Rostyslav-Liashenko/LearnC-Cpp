@@ -38,5 +38,6 @@ int main(void)
         }
     }
     printf("Ya ugadal za %d sprob!!\n",n);
+    printf("Create by Liashenko Rostyslav\n");
     return 0;
 }

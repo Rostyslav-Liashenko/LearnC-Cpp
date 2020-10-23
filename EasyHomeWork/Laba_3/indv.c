@@ -10,7 +10,6 @@ int main(void)
     int random_num, healthy = MAXHEALTHY;
     int player_num;
     random_num = rand() % 100;
-    printf("Random number %d\n",random_num);
     while (1)
     {
         printf("Input the number: ");
@@ -36,5 +35,6 @@ int main(void)
             break;
         }
     }
+    printf("Create By Liashenko Rostyslav\n");
     return 0;
 }
