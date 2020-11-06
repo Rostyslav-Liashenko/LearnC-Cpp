@@ -17,5 +17,6 @@ int main(void)
     printf("\n Input the number x = ");
     scanf("%d",&x);
     printf("\n %d! = %d\n",x,Fact(x));
+    printf("Create by Liasheko Rostyslav\n");
     return 0;
 }

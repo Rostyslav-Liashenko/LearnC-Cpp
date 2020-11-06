@@ -73,5 +73,6 @@ int main()
                 printf("\nNe virna operacia");
         }
     } while (1);
-        
+    printf("Create by Liasheko Rostyslav\n");
+    return 0;   
 }

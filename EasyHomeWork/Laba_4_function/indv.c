@@ -36,4 +36,6 @@ int main(void)
         count--;
     } while (count != 0);
     printf("NSK your number = %ld\n",a);
+    printf("Create by Liasheko Rostyslav\n");
+    return 0;
 }

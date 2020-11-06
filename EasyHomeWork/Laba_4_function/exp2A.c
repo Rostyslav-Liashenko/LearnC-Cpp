@@ -28,5 +28,6 @@ int main(void)
     printf("input the str: ");
     scanf("%s",str);
     printf("%s = %.4f\n",str,atof(str));
+    printf("Create by Liasheko Rostyslav\n");
     return 0;
 }
