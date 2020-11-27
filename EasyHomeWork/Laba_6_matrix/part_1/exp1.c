@@ -93,5 +93,6 @@ int main(void) {
     printf("Swap first and third row\n");
     swap();
     show();
+    printf("Create by Liashenko Rostyslav\n");
     return 0;
 }
