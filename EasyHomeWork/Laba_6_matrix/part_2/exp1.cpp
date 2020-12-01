@@ -59,5 +59,6 @@ int main(void) {
     vivmatr(k,n);
     obch(k,n);
     find_min(k,n);
+    cout << "Create by Liashenko Rostyslav" << endl;
     return 0;
 }
