@@ -2,10 +2,7 @@
 #include <string.h>
 
 
-void fixed_fgets(char *str) { /* функция яка удаляє символ enter із рядка */
-    int len = strlen(str);
-    str[len-1] = '\0';
-}
+
 
 
 int main(void) {
