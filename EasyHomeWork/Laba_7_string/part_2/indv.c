@@ -40,10 +40,11 @@ void print_space(int count) { /* print count space in stdout */
 }
 
 void print_result(char *word[], int count_word, int count_space) {
-    for (int i = 0; i < count_word; i++) {
-        printf("%s",word[i]);
+    int i;
+    for (i = 0; i < count_word - 1; i++) {
         print_space(count_space);
     }
+    printf("%s",word[i]);
 }
 
 int main(void){
@@ -54,6 +55,9 @@ int main(void){
     fixed_fgets(inp_str);
     int count_symbols_without_space = count_symbols_in_string_without_space(inp_str);
     int count_word = string_to_word(inp_str,word);
-    int count_need_space = LIMIT - count_symbols_without_space / count_word;
+    int count_need_space = (LIMIT - count_symbols_without_space) / (count_word - 1);
+    /* printf("count need space = %d",count_need_space); */
+    printf("Result\n");
     print_result(word,count_word,count_need_space);
+    putchar(10);
 }
