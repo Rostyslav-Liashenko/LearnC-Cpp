@@ -42,6 +42,7 @@ void print_space(int count) { /* print count space in stdout */
 void print_result(char *word[], int count_word, int count_space) {
     int i;
     for (i = 0; i < count_word - 1; i++) {
+        printf("%s",word[i]);
         print_space(count_space);
     }
     printf("%s",word[i]);
@@ -59,5 +60,6 @@ int main(void){
     /* printf("count need space = %d",count_need_space); */
     printf("Result\n");
     print_result(word,count_word,count_need_space);
+    putchar('.'); /* added point in result */
     putchar(10);
 }
