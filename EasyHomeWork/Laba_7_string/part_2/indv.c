@@ -66,7 +66,7 @@ int main(void){
     int count_symbols_without_space = count_symbols_in_string_without_space(inp_str);
     int count_word = string_to_word(inp_str,word);
     int count_need_space = (LIMIT - count_symbols_without_space) / (count_word - 1);
-    /* printf("count need space = %d",count_need_space); */
+    printf("need space beetwen words = %d\n",count_need_space);
     printf("Result\n");
     print_result(word,count_word,count_need_space);
     putchar('.'); /* added point in result */
