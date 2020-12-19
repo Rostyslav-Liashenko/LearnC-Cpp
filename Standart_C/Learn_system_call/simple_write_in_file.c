@@ -13,14 +13,16 @@ void check_error(int num) {
 
 
 int main(void) {
-    int fd = open("file.txt",O_CREAT | O_RDWR,0666);
+    int fd;
+    fd = open("file.txt",O_CREAT | O_RDWR,0666);
+    check_error(fd);
     int num;
     while (1) {
         scanf("%d",&num);
         if (num == 0) {
             break;
         }
-        write(fd,&num,sizeof(num));
+        check_error(write(fd,&num,sizeof(num)));
     }
     close(fd);
     return 0;
