@@ -16,10 +16,7 @@ void print_error(int result_system_call) {
     }
 }
 
-void create_directory() {
-    char name_directory[255];
-    printf("Input the path and name of directory: ");
-    fix_fgets(fgets(name_directory,sizeof(name_directory),stdin));
+void create_directory(char *name_directory) {
     print_error(mkdir(name_directory,0777));
 }
 
@@ -37,19 +34,13 @@ void print_list() {
     closedir(dir);
 }
 
-void create_empty_file() {
-    char name_file[255];
-    printf("Enter the name of file: ");
-    fix_fgets(fgets(name_file,sizeof(name_file),stdin));
+void create_empty_file(char *name_file) {
     int fd = open(name_file,O_CREAT,0666);
     print_error(fd);
     close(fd);
 }
 
-void delete_file() {
-    char name_file[255];
-    printf("Enter the name for delete file: ");
-    fix_fgets(fgets(name_file,sizeof(name_file),stdin));
+void delete_file(char *name_file) {
     print_error(unlink(name_file));
 }
 
@@ -62,7 +53,6 @@ void move_file() {
     rename(old_name,new_name);
 }
 
-int main(void) {
-    move_file();   
+int main(void) {  
     return 0;
 }
