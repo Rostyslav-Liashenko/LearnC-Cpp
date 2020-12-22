@@ -53,7 +53,16 @@ void delete_file() {
     print_error(unlink(name_file));
 }
 
+void move_file() {
+    char old_name[255], new_name[255];
+    printf("Enter the old name file: ");
+    fix_fgets(fgets(old_name,sizeof(old_name),stdin));
+    printf("Enter the new name of file: ");
+    fix_fgets(fgets(new_name,sizeof(new_name),stdin));
+    rename(old_name,new_name);
+}
 
 int main(void) {
+    move_file();   
     return 0;
 }
