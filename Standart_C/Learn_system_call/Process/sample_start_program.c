@@ -11,7 +11,7 @@ int main() {
         exit(1);
     }
     if (pid == 0) {
-        execlp("ls","ls","-l","-a","/var", NULL);
+        execlp("ls","ls","-l","-a", NULL);
         perror("ls");
         exit(1);
     }
