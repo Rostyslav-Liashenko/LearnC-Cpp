@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <string.h>
-#include <dirent.h>
+#include <sys/wait.h>
 #include <fcntl.h>
 
 void fix_fgets(char *s) {
@@ -21,17 +23,17 @@ void create_directory(char *name_directory) {
 }
 
 void print_list() {
-    DIR *dir;
-    struct dirent *dent;
-    const char *name = ".";
-    dir = opendir(name);
-    if (!dir) {
-        perror(name);
+    int pid = fork();
+    if (pid == -1) {
+        perror("fork");
+        exit(1);
     }
-    while ((dent = readdir(dir)) != NULL) {
-        printf("%s\n",dent->d_name);
+    if (pid == 0) {
+        execlp("ls","ls","-l","-a",NULL);
+        perror("ls");
+        exit(0);
     }
-    closedir(dir);
+    wait(NULL);
 }
 
 void create_empty_file(char *name_file) {
@@ -54,5 +56,6 @@ void move_file() {
 }
 
 int main(void) {  
+    print_list();
     return 0;
 }
