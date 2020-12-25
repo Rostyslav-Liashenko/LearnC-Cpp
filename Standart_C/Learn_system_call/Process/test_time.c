@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <sys/time.h>
 
 int main(void) {
     time_t since_epoch;
@@ -16,5 +17,8 @@ int main(void) {
     char *data;
     data = ctime(&since_epoch);
     fputs(data,stdout);
+    struct timeval tv;
+    gettimeofday(&tv,NULL);
+    printf("microsec = %ld\n",tv.tv_usec);
     return 0;
 }
