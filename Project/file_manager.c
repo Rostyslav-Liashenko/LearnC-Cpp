@@ -8,6 +8,12 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 
+#define CREATEFILE 1
+#define DELETEFILE 2
+#define CREATEDIR 3
+#define MOVE 4
+#define PRINTLIST 5
+
 void fix_fgets(char *s) {
     s[strlen(s) - 1] = '\0';
 }
@@ -56,6 +62,26 @@ void move_file() {
 }
 
 int main(void) {  
-    print_list();
+    int choose;
+    do {
+        printf("Menu\n1-create a empty file\n2-delete file\n3-create directory\n4-move and rename\n5-print list file in directory\n");
+        scanf("%d",&choose);
+        switch (choose)
+        {
+        case CREATEFILE:
+            
+            break;
+        case DELETEFILE:
+            break;
+        case CREATEDIR:
+            break;
+        case MOVE:
+            break;
+        case PRINTLIST:
+            break;
+        default:
+            break;
+        }
+    } while (1);
     return 0;
 }
