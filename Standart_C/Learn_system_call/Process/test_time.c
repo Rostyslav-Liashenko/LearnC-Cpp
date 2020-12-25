@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <sys/time.h>
+#include <unistd.h>
 
 int main(void) {
     time_t since_epoch;
@@ -20,5 +21,10 @@ int main(void) {
     struct timeval tv;
     gettimeofday(&tv,NULL);
     printf("microsec = %ld\n",tv.tv_usec);
+    sleep(1); /* sleep second. Function, not system call */
+    usleep(100000); /* sleep microsecond. Function, not system call */
+    struct timespec req;
+    req.tv_sec = 10;
+    nanosleep(&req,NULL); /* system call */
     return 0;
 }
