@@ -2,7 +2,6 @@
 #include <time.h>
 
 int main(void) {
-    
     time_t since_epoch;
     struct tm* loc_time;
     since_epoch = time(NULL);
@@ -14,5 +13,8 @@ int main(void) {
     printf("Current minunte = %d\n",loc_time->tm_min);
     printf("Current sec = %d\n",loc_time->tm_sec);
     printf("Since Epoch = %ld\n",since_epoch);
+    char *data;
+    data = ctime(&since_epoch);
+    fputs(data,stdout);
     return 0;
 }
