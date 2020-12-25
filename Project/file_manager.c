@@ -61,15 +61,24 @@ void move_file() {
     rename(old_name,new_name);
 }
 
+void enter_name(char *inp) {
+    getchar();
+    printf("Enter the name (Path):");
+    fix_fgets(fgets(inp,sizeof(inp),stdin));
+}
+
 int main(void) {  
     int choose;
+    char goal_name_file[255];
     do {
         printf("Menu\n1-create a empty file\n2-delete file\n3-create directory\n4-move and rename\n5-print list file in directory\n");
         scanf("%d",&choose);
         switch (choose)
         {
         case CREATEFILE:
-            
+            enter_name(goal_name_file);
+            create_empty_file(goal_name_file);
+            printf("\n");
             break;
         case DELETEFILE:
             break;
@@ -78,6 +87,8 @@ int main(void) {
         case MOVE:
             break;
         case PRINTLIST:
+            getchar();
+            print_list();
             break;
         default:
             break;
