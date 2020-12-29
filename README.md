@@ -10,5 +10,4 @@ gcc -Wall -g file.c -o file -l some_library<br><br>
 gcc -Wall -g triangle.c -o triangle -lm <br>
 m = math library for C <br>
 <h3>For C++ file </h3>
-<br>
 g++ file.cpp -o file
