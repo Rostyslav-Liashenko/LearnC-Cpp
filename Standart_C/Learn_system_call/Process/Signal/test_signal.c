@@ -15,7 +15,7 @@ void handler(int s) {
 int main() {
     signal(SIGINT,handler);
     while(n < 25) {
-        sleep(1);
+        pause();
     }
     return 0;
 }
