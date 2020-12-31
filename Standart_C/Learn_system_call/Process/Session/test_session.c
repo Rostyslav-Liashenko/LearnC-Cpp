@@ -9,6 +9,7 @@ int main(void) {
     printf("PGID = %d\n",getpgid(0));
     int child = fork();
     if (child == 0) {
+        setpgid(getpid(),getpid()); /* create new group */
         printf("Children\n");
         printf("PID = %d\n",getpid());
         printf("SID = %d\n",getsid(0));
