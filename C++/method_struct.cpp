@@ -4,7 +4,7 @@
 
 struct str_complex {
     double re,im;
-    double modulo() {return sqrt(re * re + im * im);}
+    double modulo() {return sqrt(this->re*this->re + this->im * this->im);}
 };
 
 int main(void) {
