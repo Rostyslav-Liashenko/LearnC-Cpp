@@ -8,8 +8,10 @@ private:
 public:
     str_complex(double a_re, double a_im)
         { re = a_re; im = a_im; }
-    double modulo()
-        { return sqrt(this->re*this->re + this->im * this->im); }
+    double get_re() { return re; }
+    double get_im() { return im; }
+    double modulo() { return sqrt(this->re*this->re + this->im * this->im); }
+    double argument() { return atan2(im,re); }
 };
 
 int main(void) {
@@ -17,4 +19,5 @@ int main(void) {
     double mod;
     mod = z.modulo();
     std::cout << "mod = " << mod << std::endl;
+    std::cout << "argument = " << z.argument() << std::endl;
 }
