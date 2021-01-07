@@ -4,6 +4,7 @@ public:
     Complex() {re = 0; im = 0;} // default construct 
     Complex(double a_re, double a_im)
         { re = a_re; im = a_im; }
+    Complex(double a){ re = a; im = 0;} // transformation construct
     double GetRe() { return re; }
     double GetIm() { return im; }
     double Modulo() { return sqrt(re*re + im*im); }
