@@ -1,6 +1,7 @@
 class Complex {
      double re, im;
 public:
+    Complex() {re = 0; im = 0;} // default construct 
     Complex(double a_re, double a_im)
         { re = a_re; im = a_im; }
     double GetRe() { return re; }
