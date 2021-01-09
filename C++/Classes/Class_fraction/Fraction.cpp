@@ -4,7 +4,7 @@ class Fraction {
     long whole;
     unsigned short fractional;
 
-    unsigned short FindNSD(unsigned short a, unsigned short b) {
+    long FindNSD(long a, long b) {
         while (a != b) {
             if (a > b)
                 a -= b;
@@ -14,8 +14,37 @@ class Fraction {
         return a;
     } 
 
-    unsigned short FindNSK(unsigned short a, unsigned short b) {
+    long FindNSK(long a, long b) {
         return a * b / FindNSD(a,b);
+    }
+
+      void reduction() {
+        bool isMinus = false;
+        if (whole < 0) {
+            whole = -whole;
+            isMinus = true;
+        }  
+        if (whole == fractional) {
+            whole = 1;
+            fractional = 1;
+            return ;
+        }
+        int nsd = FindNSD(whole,fractional);
+        whole /= nsd;
+        fractional /= nsd;
+        if (isMinus) {
+            whole = -whole;
+        }
+    }
+
+    void CommonDenominator(Fraction &other) {
+        if (fractional != other.fractional) {
+            long nsk = FindNSK(fractional,other.fractional);
+            whole *= nsk / fractional;
+            fractional = nsk;
+            other.whole *= nsk / other.fractional;
+            other.fractional = nsk; 
+        }
     }
 
 public:
@@ -28,31 +57,47 @@ public:
         whole = a_whole;
         fractional = a_fractional;
     }
-    unsigned short GetFractional() { return fractional;}
-
+    
+    unsigned short GetFractional() const { return fractional;}
+    
     void Display() {
         std::cout << whole << "/" << fractional << std::endl;;
     }
 
     Fraction operator+(Fraction &other) {
-        if (fractional != other.fractional) {
-            unsigned nsk = FindNSK(fractional,other.fractional);
-            whole *= nsk / fractional;
-            fractional = nsk;
-            other.whole *= nsk / other.fractional;
-            other.fractional = nsk; 
-        }
+        CommonDenominator(other);
         Fraction sum(whole + other.whole, fractional);
+        sum.reduction();
         return sum;
+    }
+
+    Fraction operator-(Fraction &other) {
+        CommonDenominator(other);
+        Fraction difference(whole - other.whole,fractional);
+        difference.reduction();
+        return difference;
+    }
+
+    Fraction operator*(Fraction &other) {
+        Fraction product(whole * other.whole, fractional * other.fractional);
+        product.reduction();
+        return product;
     }
 };
 
 int main(void) {
-    Fraction num1(5,6);
-    Fraction num2(5,4);
+    Fraction num1(-4,9);
+    Fraction num2(1,5);
     num1.Display();
     num2.Display();
+    std::cout << "Summa" << std::endl;
     Fraction sum = num1 + num2;
     sum.Display();
+    std::cout << "Difference" << std::endl;
+    Fraction diff = num1 - num2;
+    diff.Display();
+    std::cout << "Product" << std::endl;
+    Fraction product = num1 * num2;
+    product.Display();
     return 0;
 }
