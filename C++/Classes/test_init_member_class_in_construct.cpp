@@ -3,6 +3,12 @@
 class A {
     int x,y;
 public:
+    
+    A() {
+        x = 0;
+        y = 0;
+    }
+
     A(int a_x, int a_y) {
         x = a_x;
         y = a_y;
@@ -21,9 +27,11 @@ class B {
     int x;
     A a; // class A
 public:
-    B() : a(2,3) {
-      x = 0;  
+    
+    B() {
+        x = 0;  
     }
+
     void Display() {
         std::cout << "x = " << x << std::endl;
         std::cout << "Class A" << std::endl;
