@@ -4,8 +4,11 @@
 
 
 class Cls1 {
+    int num = 10;
     int *p;
 public:
+
+    int GetNum () { return num; }
 
     Cls1() { 
         p = new int[20];
@@ -18,7 +21,7 @@ public:
         std::cout << "Call construct copy\n";
         p = new int[20];
         for (int i = 0; i < 20; i++)
-            p[i] = rand() % 20; 
+            p[i] = rand() % 20;
     }
 
     ~Cls1() {delete [] p; }
@@ -31,9 +34,10 @@ public:
     }
 };
 
-void f(Cls1 x) {
+void f(Cls1 x) { // call construct copy
     std::cout << "Object in function f" << std::endl;
     x.display();
+    std::cout << "Num object "  << x.GetNum() << std::endl;
 }
 
 void g(Cls1 &x) {
