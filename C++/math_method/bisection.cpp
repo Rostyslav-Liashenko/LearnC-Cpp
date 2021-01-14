@@ -15,7 +15,7 @@ long double calc_f(long double a) {
 void print_result(long double x, long double f_x) {
     std::cout << "x = " << x << std::endl;
     std::cout << "f(x) = " << f_x << std::endl;
-    std::cout << "Create by Liashenko Rostyslav PSK-18"
+    std::cout << "Create by Liashenko Rostyslav PSK-18" <<std::endl;
     exit(0);
 }
 
