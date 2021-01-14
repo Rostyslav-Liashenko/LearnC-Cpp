@@ -91,13 +91,10 @@ int main(void) {
     num1.Display();
     num2.Display();
     std::cout << "Summa" << std::endl;
-    Fraction sum = num1 + num2;
-    sum.Display();
+    (num1 + num2).Display();
     std::cout << "Difference" << std::endl;
-    Fraction diff = num1 - num2;
-    diff.Display();
+    (num1 - num2).Display();
     std::cout << "Product" << std::endl;
-    Fraction product = num1 * num2;
-    product.Display();
+    (num1 * num2).Display();
     return 0;
 }
