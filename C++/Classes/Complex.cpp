@@ -11,10 +11,6 @@ public:
     double Modulo() const { return sqrt(re*re + im*im); }
     double Argument() const { return atan2(im, re); }
 
-    Complex operator+(const Complex &op2) const {
-        Complex res(re + op2.re, im + op2.im);
-        return res;
-    }
     Complex operator-(const Complex &op2) const {
         Complex res(re - op2.re, im - op2.im);
         return res;
@@ -29,3 +25,7 @@ public:
         return res;
     }
 };
+
+Complex operator+(const Complex &a, const Complex &b) {
+    return Complex(a.GetRe() + b.GetRe(), a.GetIm() + b.GetIm());
+}
