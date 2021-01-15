@@ -10,22 +10,26 @@ public:
     double GetIm() const { return im; }
     double Modulo() const { return sqrt(re*re + im*im); }
     double Argument() const { return atan2(im, re); }
-
-    Complex operator-(const Complex &op2) const {
-        Complex res(re - op2.re, im - op2.im);
-        return res;
-    }
-    Complex operator*(const Complex &op2) const {
-        Complex res(re * op2.re - im * op2.im, re * op2.im + im * op2.re);
-        return res;
-    }
-    Complex operator/(const Complex &op2) const {
-        double dvs = op2.re * op2.re + op2.im * op2.im;
-        Complex res((re * op2.re + im * op2.im) / dvs, (im * op2.re - re*op2.im) / dvs);
-        return res;
-    }
+    
+    friend Complex operator+(const Complex&, const Complex&);
+    friend Complex operator-(const Complex&, const Complex&);
+    friend Complex operator*(const Complex&, const Complex&);
+    friend Complex operator/(const Complex&, const Complex&);
 };
 
 Complex operator+(const Complex &a, const Complex &b) {
-    return Complex(a.GetRe() + b.GetRe(), a.GetIm() + b.GetIm());
+    return Complex(a.re + b.re, a.im + b.im);
+}
+
+Complex operator-(const Complex &a, const Complex &b) {
+    return Complex(a.re - b.re, a.im - b.im);
+}
+
+Complex operator*(const Complex &a, const Complex &b) {
+    return Complex(a.re * b.re - a.im * b.im, a.re * b.im + a.im * b.re);
+}
+
+Complex operator/(const Complex &a, const Complex &b) {
+    double dvs = b.re * b.re + b.im * b.im;
+    return Complex((a.re * b.re + a.im * b.im) / dvs, (a.im * b.re - a.re * b.im) / dvs);
 }
