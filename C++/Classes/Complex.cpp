@@ -15,6 +15,10 @@ public:
     friend Complex operator-(const Complex&, const Complex&);
     friend Complex operator*(const Complex&, const Complex&);
     friend Complex operator/(const Complex&, const Complex&);
+
+    const Complex& operator=(const Complex& c)
+        { re = c.re; im = c.im; return *this; }
+    void operator=(double x) { re = x; im = 0; }
 };
 
 Complex operator+(const Complex &a, const Complex &b) {
