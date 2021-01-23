@@ -6,12 +6,20 @@ public:
         size = 16;
         p = new int[size];
     }
+
+    IntArray(const IntArray &original) {
+        size = original.size;
+        p = new int[size];
+        for (int i = 0; i < size; i++) {
+            p[i] = original.p[i];
+        }
+    }
+
     ~IntArray() { delete [] p; }
     int& operator[](unsigned int idx);
 private:
     void Resize(unsigned int required_index);
     void operator=(const IntArray& ref) {}
-    IntArray(const IntArray& ref) {}
 };
 
 int& IntArray::operator[](unsigned int idx) {
