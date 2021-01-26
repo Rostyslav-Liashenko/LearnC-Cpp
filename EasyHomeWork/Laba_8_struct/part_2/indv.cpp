@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-
+#include <cstring>
 
 #define MAXLENGTHNAME 50
 #define COUNTSUBJECTFORONETEACHER 10
@@ -87,6 +87,17 @@ void createDB(teacher th[], int &count_record) {
         enter_new_record(&th[i]);
         count_record++;
     }
+}
+
+teacher* find_record(teacher* records,char *require_last_name, int count_record) { // return last record for requirement
+    teacher* result = NULL;
+    for (int i = 0; i < count_record; i++) {
+        if (!strcmp(records[i].last_name,require_last_name)) {
+            show_one_record(&records[i],i);
+            result = &records[i];
+        }
+    }
+    return result;
 }
 
 int main(void) {
