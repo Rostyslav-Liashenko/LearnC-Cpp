@@ -93,7 +93,7 @@ int find_record(teacher* records,char *require_last_name, int count_record) { //
     int index = -1;
     for (int i = 0; i < count_record; i++) {
         if (!strcmp(records[i].last_name,require_last_name)) {
-            show_one_record(&records[i],i);
+            show_one_record(records,i);
             index = i;
         }
     }
@@ -133,14 +133,76 @@ void sort_records(teacher records[], int count_record) {
     }
 }
 
+int find_count_exmination(teacher records[], int count_record, char *name_sub) {
+    int count = 0;
+    for (int i = 0; i < count_record; i++) {
+        for (int j = 0; j < records[i].count_subject; j++) {
+            if (records[i].sub[j].is_examination && (!(strcmp(records[i].sub[j].subject_name,name_sub)))) {
+                show_one_record(records,i);
+                count++;
+            }
+        }
+    }
+    return count;
+}
 
-int main(void) {
+void delay() {
+    char tmp;
+    std::cout << "Press any key to continue" << std::endl;
+    std::cin >> tmp;
+}
+
+void main_menu() {
+    int tmp_count;
     int count_record = 0;
     teacher teachers[MAXCOUNTRECORD];
+    char tmp[MAXLENGTHNAME];
     createDB(teachers,count_record);
-    show_all_record(teachers,count_record);
-    sort_records(teachers,count_record);
-    std::cout << "New list" << std::endl;
-    show_all_record(teachers,count_record);
+    char choose;
+    while (true) {
+        std::cout << "\e[1;1H\e[2J"; // clear console in different system
+        std::cout << "Menu" << std::endl;
+        std::cout << "1 - show all records\n2 - Sort all records\n3 - add record\n4 - delete record\n5 - find record";
+        std::cout << "\n6 - count teachers for eximination\n7 - exit" << std::endl;
+        std::cin >> choose;
+        switch (choose)
+        {
+        case '1':
+            show_all_record(teachers,count_record);
+            break;
+        case '2':
+            sort_records(teachers,count_record);
+            std::cout << "Sort complete" << std::endl;
+            break;
+        case '3':
+            add_new_record(teachers,count_record);
+            break;
+        case '4':
+            remove_record(teachers,count_record);
+            break;
+        case '5':
+            std::cout << "Input the last name teacher: " << std::endl;
+            std::cin >> tmp;
+            find_record(teachers,tmp,count_record);
+            break;
+        case '6':
+            std::cout << "Input the name of subject: " << std::endl;
+            std::cin >> tmp;
+            tmp_count = find_count_exmination(teachers,count_record,tmp);
+            std::cout << "count = " << tmp_count << std::endl;
+            break;
+        case '7':
+            exit(0);
+            break;
+        default:
+            std::cout << "You select not correct variant" << std::endl;
+            break;
+        }
+        delay();
+    }
+}
+
+int main(void) {
+    main_menu();
     return 0;
 }
