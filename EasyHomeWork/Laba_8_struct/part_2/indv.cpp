@@ -89,21 +89,58 @@ void createDB(teacher th[], int &count_record) {
     }
 }
 
-teacher* find_record(teacher* records,char *require_last_name, int count_record) { // return last record for requirement
-    teacher* result = NULL;
+int find_record(teacher* records,char *require_last_name, int count_record) { // return index last record for requirement
+    int index = -1;
     for (int i = 0; i < count_record; i++) {
         if (!strcmp(records[i].last_name,require_last_name)) {
             show_one_record(&records[i],i);
-            result = &records[i];
+            index = i;
         }
     }
-    return result;
+    if (index == -1) {
+        std::cout << "Sorry, not find record!!!" << std::endl;
+    }
+    return index;
 }
+
+void remove_record(teacher* records, int &count_record) {
+    char require_last_name[MAXLENGTHNAME];
+    std::cout << "Input the last name for delete record: ";
+    std::cin >> require_last_name;
+    int index_delete = find_record(records,require_last_name,count_record);
+    for (int i = index_delete; i < count_record - 1; i++) {
+        records[i] = records[i + 1];
+    }
+    count_record--;
+}
+
+void add_new_record(teacher* records, int &count_record) {
+    std::cout << "Added new record" << std::endl;
+    enter_new_record(&records[count_record]);
+    count_record++;
+}
+
+void sort_records(teacher records[], int count_record) {
+    teacher tmp;
+    for (int i = 1; i < count_record; i++) {
+        for (int j = count_record - 1; j >= 1; j--) {
+            if (strcmp(records[j - 1].last_name,records[j].last_name) > 0) {
+                tmp = records[j - 1];
+                records[j - 1] = records[j];
+                records[j] = tmp;
+            }
+        }
+    }
+}
+
 
 int main(void) {
     int count_record = 0;
     teacher teachers[MAXCOUNTRECORD];
     createDB(teachers,count_record);
+    show_all_record(teachers,count_record);
+    sort_records(teachers,count_record);
+    std::cout << "New list" << std::endl;
     show_all_record(teachers,count_record);
     return 0;
 }
