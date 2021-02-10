@@ -32,7 +32,7 @@ void check_error_file(FILE *f) {
     }
 }
 
-void show_info_one_student(struct student *st, int count) {
+void show_info_student(struct student *st, int count) {
     for (int i = 0; i < count; i++) {
         printf("%s %s %d %d %d\n",st[i].first_name,st[i].surname,st[i].rating_math,st[i].rating_OOP,st[i].rating_DB);
     }
@@ -88,6 +88,20 @@ void find_record(struct student *st, int count) {
     }
 }
 
+void sort_structure(struct student *st, int count) {
+    printf("Sort for surname!!!\n");
+    struct student tmp;
+    for (int i = count - 1; i > 0; i--) {
+        for (int j = 0; j < 1; j++) {
+            if (strcmp(st[j + 1].surname,st[j].surname) < 0) {
+                tmp = st[j + 1];
+                st[j + 1] = st[j];
+                st[j] = tmp;
+            }
+        }
+    }
+    write_records("Liashenko_sort",st,0,count);
+}
 
 int main(void) {
     struct student students[COUNTSTUDENTS];
@@ -96,6 +110,9 @@ int main(void) {
     delete_last_symbols(fgets(name_file,sizeof(name_file),stdin));
     int count_students = read_records(name_file,students);
     write_records(strcat(name_file,"_all_records"),students,0,count_students);
+    printf("Student\n");
+    show_info_student(students,count_students);
     find_record(students,count_students);
+    sort_structure(students,count_students);
     return 0;
 }
