@@ -1,5 +1,6 @@
+#include <stdio.h>
 
-unsigned int len_count_in_file(const char *file_name) {
+unsigned int line_count_in_file(const char *file_name) {
     FILE *f = fopen(file_name, "r");
     if (!f)
         throw "could't open the file";
@@ -13,7 +14,18 @@ unsigned int len_count_in_file(const char *file_name) {
 }
 
 
-int main(void) {
-
+int main(int argc, char **argv) {
+    if (argc < 2) {
+        fprintf(stderr, "No file name\n");
+        return 1;
+    }
+    try {
+        int res = line_count_in_file(argv[1]);
+        printf("The file %s constains %d lines\n", argv[1],res);
+    }
+    catch (const char *exception ) {
+        fprintf(stderr,"Exception (string): %s\n",exception);
+        return 1;
+    }
     return 0;
 }
