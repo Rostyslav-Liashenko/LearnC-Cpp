@@ -2,7 +2,7 @@
 
 double f(int a, int b) {
     if (b == 0) {
-        throw -1;
+        throw "Error";
     }
     return a / b;
 }
@@ -15,7 +15,7 @@ int main(void) {
         double c = f(a,b);
         std::cout << a << " / " << b << " = " << c << std::endl;
     }
-    catch (int exception) {
+    catch (...) {
         std::cout << "Error! Divison 0";
         return 1;
     }
