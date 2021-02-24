@@ -1,4 +1,5 @@
 #include <cstring>
+#include <cstdio>
 
 struct person {
     char name[64];
@@ -13,7 +14,7 @@ struct student : person {
 };
 
 void f(person &pres) {
-    // some code;
+    pres.sex = 'f';
 }
 
 int main() {
@@ -28,6 +29,7 @@ int main() {
     p = &s1;
     person &ref = s1;
     f(s1);
+    printf("s1.sex = %c\n",s1.sex);
     return 0;
 }
 
