@@ -21,6 +21,13 @@ public:
     }
 };
 
+class ShotGun : public Gun {
+public:
+    void Shoot() override {
+        std::cout << "bing bang bin BANG" << std::endl;
+    }
+};
+
 class Player {
 public:
     void Shoot(Gun *gun) {
@@ -33,8 +40,10 @@ int main(void) {
     Bazooka bazooka;
     SubmachineGun submachine_gun;
     Player player;
+    ShotGun shotgun;
 
     player.Shoot(&gun);
     player.Shoot(&submachine_gun);
     player.Shoot(&bazooka);
+    player.Shoot(&shotgun);
 }
