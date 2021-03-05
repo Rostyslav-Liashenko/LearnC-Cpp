@@ -1,8 +1,14 @@
 #include <iostream>
 
-class Gun { // basic class
+// abstract class
+class Weapon {
 public:
-    virtual void Shoot() {
+    virtual void Shoot() = 0;
+};
+
+class Gun : public Weapon { // basic class
+public:
+    void Shoot() override {
         std::cout << "BANG!" << std::endl;
     }
 };
@@ -14,14 +20,14 @@ public:
     }
 };
 
-class Bazooka : public Gun {
+class Bazooka : public Weapon {
 public:
     void Shoot() override {
         std::cout << "BADABUM!!!" << std::endl;
     }
 };
 
-class ShotGun : public Gun {
+class ShotGun : public Weapon {
 public:
     void Shoot() override {
         std::cout << "bing bang bin BANG" << std::endl;
@@ -30,8 +36,8 @@ public:
 
 class Player {
 public:
-    void Shoot(Gun *gun) {
-        gun->Shoot();
+    void Shoot(Weapon *weapon) {
+        weapon->Shoot();
     }
 };
 
