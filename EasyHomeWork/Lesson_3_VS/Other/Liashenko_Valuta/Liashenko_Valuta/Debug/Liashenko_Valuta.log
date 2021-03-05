@@ -1,0 +1,6 @@
+﻿  CValuta.cpp
+  Liashenko_Valuta.cpp
+C:\!LearnC++\Day_2\Liashenko_Valuta\Liashenko_Valuta\Liashenko_Valuta.cpp(7,34): warning C4305: аргумент: усечение из "double" в "float"
+C:\!LearnC++\Day_2\Liashenko_Valuta\Liashenko_Valuta\Liashenko_Valuta.cpp(12,21): warning C4305: аргумент: усечение из "double" в "float"
+  Создание кода...
+  Liashenko_Valuta.vcxproj -> C:\!LearnC++\Day_2\Liashenko_Valuta\Debug\Liashenko_Valuta.exe
