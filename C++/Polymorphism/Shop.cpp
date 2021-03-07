@@ -17,7 +17,7 @@ public:
         cout << "Price: " << price << endl;
         cout << "Producer: " << producer << endl; 
     }
-    ~Product() {};
+    virtual ~Product() {}
 };
 
 class User {
@@ -45,7 +45,7 @@ public:
         cout << "Producer: " << producer << endl;
         cout << "Volume: " << volume << endl;
     }
-    virtual ~Milk() {};
+    ~Milk() override {}
 };
 
 class Bread : public Product {
@@ -64,7 +64,7 @@ public:
     cout << "Producer: " << producer << endl;
     cout << "Specias: " << specias << endl;  
     }
-    virtual ~Bread() {};
+    ~Bread() override {}
 };
 
 int main(void) {

@@ -4,6 +4,7 @@ class Animal { // abstract class
     public:
     virtual void Walk() = 0;
     virtual void Sound() = 0;
+    virtual ~Animal() {}
 };
 
 class Dog : public Animal {
@@ -14,7 +15,7 @@ public:
     void Sound() override {
         std::cout << "Gav gav" << std::endl;
     }
-    ~Dog() {};
+    ~Dog() override {}
 };
 
 class Cat : public Animal {
@@ -25,7 +26,7 @@ public:
     void Sound() override {
         std::cout << "Mya mya" << std::endl;
     }
-    ~Cat() {};
+    ~Cat() override {}
 };
 
 class Duck : public Animal {
@@ -36,7 +37,7 @@ public:
     void Sound() override {
         std::cout << "Krya krya" << std::endl;
     }
-    ~Duck() {};
+    ~Duck() override {}
 };
 
 class RandomAnimal {

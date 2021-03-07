@@ -4,6 +4,7 @@
 class Weapon {
 public:
     virtual void Shoot() = 0;
+    virtual ~Weapon() {}
 };
 
 class Gun : public Weapon { // basic class
@@ -11,7 +12,7 @@ public:
     void Shoot() override {
         std::cout << "BANG!" << std::endl;
     }
-    virtual ~Gun() {};
+    ~Gun() override {}
 };
 
 class SubmachineGun : public Gun {
@@ -19,7 +20,7 @@ public:
     virtual void Shoot() {
         std::cout << "BANG! BANG! BANG!" << std::endl;  
     }
-    virtual ~SubmachineGun() {};
+    ~SubmachineGun() override {}
 };
 
 class Bazooka : public Weapon {
@@ -27,7 +28,7 @@ public:
     void Shoot() override {
         std::cout << "BADABUM!!!" << std::endl;
     }
-    virtual ~Bazooka() {};
+    ~Bazooka() override {}
 };
 
 class ShotGun : public Weapon {
@@ -35,7 +36,7 @@ public:
     void Shoot() override {
         std::cout << "bing bang bin BANG" << std::endl;
     }
-    virtual ~ShotGun() {};
+    ~ShotGun() override {};
 };
 
 class Player {
