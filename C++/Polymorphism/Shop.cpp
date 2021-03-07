@@ -40,9 +40,7 @@ public:
     }
 
     void PrintInfo() override {
-        cout << "Name: " << name << endl;
-        cout << "Price: " << price << endl;
-        cout << "Producer: " << producer << endl;
+        Product::PrintInfo();
         cout << "Volume: " << volume << endl;
     }
     ~Milk() override {}
@@ -59,9 +57,7 @@ public:
         specias = aspecias;
     }
     void PrintInfo() override {
-    cout << "Name: " << name << endl;
-    cout << "Price: " << price << endl;
-    cout << "Producer: " << producer << endl;
+    Product::PrintInfo();
     cout << "Specias: " << specias << endl;  
     }
     ~Bread() override {}
