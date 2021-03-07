@@ -14,6 +14,7 @@ public:
     void Sound() override {
         std::cout << "Gav gav" << std::endl;
     }
+    ~Dog() {};
 };
 
 class Cat : public Animal {
@@ -24,6 +25,7 @@ public:
     void Sound() override {
         std::cout << "Mya mya" << std::endl;
     }
+    ~Cat() {};
 };
 
 class Duck : public Animal {
@@ -34,6 +36,7 @@ public:
     void Sound() override {
         std::cout << "Krya krya" << std::endl;
     }
+    ~Duck() {};
 };
 
 class RandomAnimal {
