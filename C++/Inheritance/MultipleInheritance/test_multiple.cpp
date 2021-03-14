@@ -9,6 +9,10 @@ public:
         cout << "Call constructor Car" << endl; 
     }
 
+    ~Car() {
+        cout << "Call destructor Car" << endl;
+    }
+
     void Drive() {
         cout << "I am driving..." << endl;
     }
@@ -19,6 +23,11 @@ public:
     Airplane() {
         cout << "Call constructor Airplane" << endl;
     }
+
+    ~Airplane() {
+        cout << "Call destructor Airplane" << endl;
+    }
+
     void Fly() {
         cout << "I am flying..." << endl;
     }
@@ -29,11 +38,16 @@ public:
     FlyingCar() {
         cout << "Call constructor FlyingCar" << endl;
     }
+    
+    ~FlyingCar() {
+        cout << "Call destructor FlyingCar" << endl;
+    }
 };
 
 int main(void) {
     FlyingCar fc;
     fc.Drive();
-    fc.Fly();   
+    fc.Fly();
+    cout << endl << endl;   
     return 0;
 }
