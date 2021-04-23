@@ -17,11 +17,18 @@ int main() {
     struct sockaddr_in serv_addr;
 
     listen_socket_fd = socket(AF_INET, SOCK_STREAM, 0);
+    if (listen_socket_fd < 0) {
+        printf("Not impossible create listen socket");
+        return 1;
+    }
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(5000);
     serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
-    bind(listen_socket_fd,(struct sockaddr *) &serv_addr, sizeof(serv_addr));
+    if (bind(listen_socket_fd,(struct sockaddr *) &serv_addr, sizeof(serv_addr)) == -1) {
+        printf("Not impossible create bind socket");
+        return 1;
+    }
     listen(listen_socket_fd, 10);
     
     accept_socket_fd = accept(listen_socket_fd, (struct sockaddr*)NULL, NULL);
