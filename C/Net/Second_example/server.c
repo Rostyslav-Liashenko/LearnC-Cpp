@@ -24,7 +24,8 @@ int main() {
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(5000);
     serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-
+    int opt = 1;
+    setsockopt(listen_socket_fd,SOL_SOCKET,SO_REUSEADDR,&opt,sizeof(opt)); /* command for fix bug with port after end work server */
     if (bind(listen_socket_fd,(struct sockaddr *) &serv_addr, sizeof(serv_addr)) == -1) {
         printf("Not impossible create bind socket");
         return 1;
